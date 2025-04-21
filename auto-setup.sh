@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# UI-Utils Auto-Installation Script for Minecraft 1.20.4 Servers
+# UI-Utils Auto-Installation Script for Minecraft 1.21.4 Servers
 # Version: 1.0
 # Author: Modified for automatic installation
 
@@ -12,7 +12,7 @@ RED='\033[0;31m'
 NC='\033[0m' # No Color
 
 echo -e "${BLUE}====================================================${NC}"
-echo -e "${BLUE}      UI-Utils Auto-Installation for MC 1.20.4      ${NC}"
+echo -e "${BLUE}      UI-Utils Auto-Installation for MC 1.21.4      ${NC}"
 echo -e "${BLUE}====================================================${NC}"
 
 # Check if script is run with root privileges
@@ -91,10 +91,10 @@ if [ ! -d "$PLUGINS_DIR" ]; then
   mkdir -p "$PLUGINS_DIR"
 fi
 
-# Download UI-Utils for 1.20.4
-echo -e "${GREEN}Downloading UI-Utils for Minecraft 1.20.4...${NC}"
-DOWNLOAD_URL="https://github.com/jacobbyrne72/ui-utils/releases/download/v1.4.5/ui-utils-1.4.5-mc1.20.4.jar"
-MOD_PATH="$MODS_DIR/ui-utils-1.4.5-mc1.20.4.jar"
+# Download UI-Utils for 1.21.4
+echo -e "${GREEN}Downloading UI-Utils for Minecraft 1.21.4...${NC}"
+DOWNLOAD_URL="https://github.com/jacobbyrne72/ui-utils/releases/download/v2.3.1/ui-utils-2.3.1-mc1.21.4.jar"
+MOD_PATH="$MODS_DIR/ui-utils-2.3.1-mc1.21.4.jar"
 
 wget -q "$DOWNLOAD_URL" -O "$MOD_PATH" || curl -s -L "$DOWNLOAD_URL" -o "$MOD_PATH"
 
@@ -103,7 +103,7 @@ if [ ! -f "$MOD_PATH" ]; then
   echo -e "${YELLOW}Trying alternative download...${NC}"
   
   # Alternative download from the original repository
-  ALT_URL="https://github.com/Coderx-Gamer/ui-utils/releases/download/1.4.4/ui-utils-1.4.4.jar"
+  ALT_URL="https://github.com/Coderx-Gamer/ui-utils/releases/download/2.1.0/ui-utils-2.1.0.jar"
   wget -q "$ALT_URL" -O "$MOD_PATH" || curl -s -L "$ALT_URL" -o "$MOD_PATH"
   
   if [ ! -f "$MOD_PATH" ]; then
@@ -117,17 +117,17 @@ echo -e "${GREEN}UI-Utils successfully installed to: ${BLUE}$MOD_PATH${NC}"
 # Check for and download Fabric API if not present
 FABRIC_API_FOUND=false
 for file in "$MODS_DIR"/*; do
-  if [[ "$file" == *fabric-api* && "$file" == *1.20.4* ]]; then
+  if [[ "$file" == *fabric-api* && "$file" == *1.21.4* ]]; then
     FABRIC_API_FOUND=true
-    echo -e "${GREEN}Fabric API for 1.20.4 already installed.${NC}"
+    echo -e "${GREEN}Fabric API for 1.21.4 already installed.${NC}"
     break
   fi
 done
 
 if [ "$FABRIC_API_FOUND" = false ]; then
   echo -e "${YELLOW}Fabric API not found. Downloading...${NC}"
-  FABRIC_API_URL="https://cdn.modrinth.com/data/P7dR8mSH/versions/JW8l0RzP/fabric-api-0.91.1%2B1.20.4.jar"
-  FABRIC_API_PATH="$MODS_DIR/fabric-api-0.91.1+1.20.4.jar"
+  FABRIC_API_URL="https://cdn.modrinth.com/data/P7dR8mSH/versions/wFP6sj2M/fabric-api-0.113.0%2B1.21.4.jar"
+  FABRIC_API_PATH="$MODS_DIR/fabric-api-0.113.0+1.21.4.jar"
   
   wget -q "$FABRIC_API_URL" -O "$FABRIC_API_PATH" || curl -s -L "$FABRIC_API_URL" -o "$FABRIC_API_PATH"
   
@@ -150,7 +150,7 @@ echo -e "${GREEN}Creating auto-configuration...${NC}"
 cat > "$CONFIG_DIR/config.json" << EOF
 {
   "auto_enabled": true,
-  "minecraft_version": "1.20.4",
+  "minecraft_version": "1.21.4",
   "auto_update": true,
   "plugin_compatibility_mode": true,
   "server_integration": true
