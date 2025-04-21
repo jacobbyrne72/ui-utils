@@ -4,14 +4,14 @@
   "version": "${version}",
 
   "name": "UI Utils",
-  "description": "Plugin debugging mod.",
+  "description": "Plugin debugging mod for Minecraft servers. Auto-setup version.",
   "authors": [
     "Coderx_Gamer",
     "MrBreakNFix"
   ],
   "contact": {
     "homepage": "https://ui-utils.com",
-    "sources": "https://github.com/Coderx-Gamer/ui-utils"
+    "sources": "https://github.com/jacobbyrne72/ui-utils"
   },
 
   "license": [
@@ -31,9 +31,9 @@
   ],
 
   "depends": {
-    "fabricloader": ">=0.16.9",
+    "fabricloader": ">=0.15.0",
     "fabric": "*",
-    "minecraft": "~1.21.4",
+    "minecraft": "~1.20.4",
     "java": ">=17"
   },
 
@@ -51,6 +51,11 @@
 
   "custom": {
     "modmenu:clientsideOnly": true,
-    "modmenu:api": false
+    "modmenu:api": false,
+    "auto-setup": {
+      "enabled": true,
+      "version": "1.20.4",
+      "auto-update": true
+    }
   }
 }
